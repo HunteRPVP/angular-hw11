@@ -1,0 +1,23 @@
+<div class="search">
+  <label class="active" for="first_name">Поиск по имени</label>
+  <br>
+  <input class="validate" id="first_name" placeholder="Имя" [(ngModel)]="searchStr">
+  <button (click) = "filter(searchStr)">Фильтровать</button>
+</div>
+
+<table>
+  <tr>
+    <th>Имя</th>
+    <th>Почта</th>
+    <th>Адрес</th>
+  </tr>
+  <tr *ngFor="let user of usersService.users">
+    <td>{{ user.name + " (" + user.username + ")" }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.address }}</td>
+  </tr>
+</table>
+
+<button (click)="addUser()">POST</button>
+<button (click)="changeUser()">PUT</button>
+<button (click)="deleteUser()">DELETE</button>
